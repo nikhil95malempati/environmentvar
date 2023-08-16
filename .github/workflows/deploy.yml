@@ -8,12 +8,12 @@ env:
   MONGODB_DB_NAME: gha-demo   #this env variable will be available to all jobs
 jobs:
   test:
+    environment: testing
     env:
       MONGODB_CLUSTER_ADDRESS: cluster0.md8s3l7.mongodb.net
       MONGODB_USERNAME: ${{ secrets.MONGODB_USERNAME}}     #MONGODB_USERNAME present in github secrets
       MONGODB_PASSWORD: ${{ secrets.MONGODB_PASSWORD}}
       PORT: 8080
-    environment: testing
     runs-on: ubuntu-latest
     steps:
       - name: Get Code
